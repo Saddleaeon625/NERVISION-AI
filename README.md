@@ -51,7 +51,7 @@ An AI-powered Named Entity Recognition (NER) system designed to analyze Somali t
 ### 👥 Team Section
 
 <p align="center">
-  <img src="docs/Teams.png" width="800">
+  <img src="docs/Team.png" width="800">
 </p>
 
 ### 🔐 Login Page
