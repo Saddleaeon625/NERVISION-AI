@@ -1,0 +1,110 @@
+# =========================
+# 🐍 Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc.*
+*.py,cover
+.Python
+
+# Virtual environments
+env/
+venv/
+ENV/
+.venv/
+
+# =========================
+# 📦 Node (if used)
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# 🧠 AI / ML Models (VERY IMPORTANT)
+# =========================
+output/
+models/
+*.h5
+*.keras
+*.pb
+*.ckpt
+*.pt
+*.pth
+
+# =========================
+# 🗄️ Database
+# =========================
+*.sqlite3
+*.db
+
+# =========================
+# 🔐 Environment Variables
+# =========================
+.env
+.env.*
+*.env
+
+# =========================
+# 📁 Static & Uploads
+# =========================
+static/uploads/
+uploads/
+
+# =========================
+# 🧪 Testing / Coverage
+# =========================
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+
+# =========================
+# 🧰 IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# =========================
+# 🍎 macOS
+# =========================
+.DS_Store
+
+# =========================
+# 🪟 Windows
+# =========================
+Thumbs.db
+ehthumbs.db
+
+# =========================
+# 📒 Jupyter Notebook
+# =========================
+.ipynb_checkpoints
+
+# =========================
+# 🧱 Flask
+# =========================
+instance/
+*.log
+
+# =========================
+# 📦 Build / Distribution
+# =========================
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# =========================
+# 🔥 Misc
+# =========================
+*.log
+*.tmp
+*.swp

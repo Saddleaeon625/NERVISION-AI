@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>NERVision – AI-Powered Entity Recognition</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+<!--  <link href="../static/img/favicon.png" rel="icon">-->
+<!--  <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">-->
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Mukta:wght@200;300;400;500;600;700;800&family=Abel:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../static/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Visible
+  * Template URL: https://bootstrapmade.com/visible-bootstrap-agency-template/
+  * Updated: May 22 2025 with Bootstrap v5.3.6
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header fixed-top py-3 bg-dark text-white shadow-sm">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+
+      <!-- Logo -->
+      <a href="/" class="logo d-flex align-items-center text-white text-decoration-none">
+        <h1 class="sitename mb-0 fw-bold fs-3">NERVision</h1>
+      </a>
+
+      <!-- Right side: Navigation & Buttons -->
+      <div class="d-flex align-items-center gap-3">
+
+        <!-- Desktop Navigation -->
+        <nav id="navmenu" class="d-none d-xl-block">
+          <ul class="nav gap-3 mb-0">
+            <li class="nav-item"><a class="nav-link text-white" href="/#hero">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/#about">About</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/#howItWorks">How It Works</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/#features">Features</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/#whyChooseUs">Why Choose Us</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/#faq">FAQ</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/#team">Team</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Desktop Buttons -->
+        <div class="d-none d-xl-flex gap-2">
+          <a href="/login-page" class="btn btn-outline-light rounded-pill px-4 py-1">Login</a>
+          <a href="/signup-page" class="btn btn-primary rounded-pill px-4 py-1">Signup</a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="d-xl-none btn btn-outline-light border-0 fs-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Offcanvas Menu -->
+    <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="mobileNav">
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column gap-2">
+          <li class="nav-item"><a class="nav-link text-white" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#services">How It Works</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#portfolio">Features</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#portfolio">Why Choose Us</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#team">Team</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#team">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
+        </ul>
+        <hr class="bg-white">
+        <a href="login.html" class="btn btn-outline-light w-100 mb-2">Login</a>
+        <a href="signup.html" class="btn btn-primary w-100">Signup</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+      <div class="container">
+        <div class="row align-items-center">
+           <!-- Left Content -->
+          <div class="col-lg-6 hero-content" data-aos="fade-up" data-aos-delay="100">
+            <div class="subtitle mb-2">
+              <span class="text-primary fw-bold">AI-Powered Intelligence</span>
+            </div>
+
+            <h1 class="title mb-4">
+              Discover <span class="highlight text-primary">Entities</span> with Precision
+            </h1>
+
+            <div class="description mb-4">
+              <p>
+                NERVision is a powerful Named Entity Recognition (NER) system that identifies <strong>people, organizations, dates, and locations</strong> from raw text using deep learning. Built for speed, scale, and accuracy.
+              </p>
+            </div>
+
+            <div class="hero-buttons">
+              <a href="#howItWorks" class="btn btn-primary btn-lg me-3">
+                How It Works <i class="bi bi-chevron-right ms-1"></i>
+              </a>
+              <a href="#features" class="btn btn-outline-light btn-lg">
+                Explore Features
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-6 hero-visual" data-aos="fade-up" data-aos-delay="200">
+            <div class="image-wrapper">
+              <img src="../static/img/hero2.jpg" alt="Creative Design" class="main-image">
+
+              <!-- Floating Icons -->
+              <div class="position-absolute top-0 start-0 translate-middle p-2 bg-primary text-white rounded-circle shadow">
+                <i class="bi bi-robot"></i>
+              </div>
+              <div class="position-absolute bottom-0 end-0 translate-middle p-2 bg-info text-white rounded-circle shadow">
+                <i class="bi bi-lightning-fill"></i>
+              </div>
+
+              <!-- Experience Badge -->
+              <div class="position-absolute bottom-0 start-0 translate-middle-y bg-dark text-white p-3 rounded-pill shadow-sm">
+                <span class="fw-bold">Smart NLP Model</span>
+              </div>
+            </div>
+
+            <div class="client-counter text-center bg-dark bg-opacity-50 text-white p-4 rounded-4 shadow-lg mt-4">
+              <div class="counter-number display-5 fw-bold text-primary">
+                <span>5,000+</span>
+              </div>
+              <div class="counter-text fs-5 mt-2">
+                <span>Texts Analyzed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">About</span>
+        <h2>About NERVision</h2>
+        <p>AI-powered system for extracting names, locations, dates, and organizations from unstructured text.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="about-image-wrapper position-relative">
+              <img src="../static/img/hero.jpg" alt="NER System" class="img-fluid rounded-4">
+              <div class="mission-card">
+                <div class="mission-icon">
+                  <i class="bi bi-cpu"></i>
+                </div>
+                <div class="mission-content">
+                  <h4>Our Purpose</h4>
+                  <p>Transforming raw text into structured data using deep learning — with unmatched accuracy and speed.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="about-content ps-lg-4">
+              <div class="tag-badge" data-aos="fade-up" data-aos-delay="100">SYSTEM OVERVIEW</div>
+              <h2 class="mb-4" data-aos="fade-up" data-aos-delay="200">
+                Revolutionizing information extraction with AI-based Named Entity Recognition
+              </h2>
+
+              <div class="about-info" data-aos="fade-up" data-aos-delay="300">
+                <p>NERVision is a deep learning-based NER system that identifies and classifies entities like people, locations, organizations, and dates from unstructured text — enabling real-time insights in fields such as journalism, security, healthcare, and data analysis.</p>
+                <p>Designed for developers, researchers, and enterprise systems, our platform ensures both scalability and precision through modern NLP models and intelligent backend integration.</p>
+              </div>
+
+              <h4 class="values-title mt-4 mb-3" data-aos="fade-up" data-aos-delay="400">Core Strengths</h4>
+
+              <div class="values-list" data-aos="fade-up" data-aos-delay="500">
+                <div class="value-item">
+                  <div class="value-icon"><i class="bi bi-check2"></i></div>
+                  <span class="value-text">Deep Learning Powered</span>
+                </div>
+                <div class="value-item">
+                  <div class="value-icon"><i class="bi bi-check2"></i></div>
+                  <span class="value-text">Multilingual Support</span>
+                </div>
+                <div class="value-item">
+                  <div class="value-icon"><i class="bi bi-check2"></i></div>
+                  <span class="value-text">Real-Time Entity Extraction</span>
+                </div>
+                <div class="value-item">
+                  <div class="value-icon"><i class="bi bi-check2"></i></div>
+                  <span class="value-text">API Integration</span>
+                </div>
+                <div class="value-item">
+                  <div class="value-icon"><i class="bi bi-check2"></i></div>
+                  <span class="value-text">Privacy First Design</span>
+                </div>
+                <div class="value-item">
+                  <div class="value-icon"><i class="bi bi-check2"></i></div>
+                  <span class="value-text">Scalable Infrastructure</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- /About Section -->
+
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="stats-wrapper">
+
+              <div class="stats-item" data-aos="zoom-in" data-aos-delay="150">
+                <div class="icon-wrapper">
+                  <i class="bi bi-cpu"></i>
+                </div>
+                <span data-purecounter-start="0" data-purecounter-end="100000" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Entities Recognized</p>
+              </div>
+
+              <div class="stats-item" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-wrapper">
+                  <i class="bi bi-journal-code"></i>
+                </div>
+                <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Projects Deployed</p>
+              </div>
+
+              <div class="stats-item" data-aos="zoom-in" data-aos-delay="250">
+                <div class="icon-wrapper">
+                  <i class="bi bi-clock-history"></i>
+                </div>
+                <span data-purecounter-start="0" data-purecounter-end="24000" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Processing Hours</p>
+              </div>
+
+              <div class="stats-item" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-wrapper">
+                  <i class="bi bi-person-check"></i>
+                </div>
+                <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Team Members</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+    <!-- /Stats Section -->
+
+
+    <!-- How It Works Section -->
+    <section id="howItWorks" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">How It Works</span>
+        <h2>How It Works</h2>
+        <p>Discover how our AI system extracts people, organizations, dates, and locations from raw text with precision and speed.</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="services-header">
+          <div class="row">
+            <div class="col-lg-9" data-aos="fade-right">
+              <div class="services-intro">
+                <div class="services-tag">NER Pipeline</div>
+                <h2>From Raw Input to Structured Data — Instantly</h2>
+                <p>Our system simplifies the process of entity extraction using a powerful AI model built on deep learning. Whether you're analyzing documents, social media, or support tickets, our pipeline ensures accurate entity recognition every time.</p>
+                <p>Upload text, let our model detect names, places, dates, and organizations, then receive structured output ready for analysis or integration into your systems.</p>
+              </div>
+            </div>
+            <div class="col-lg-3" data-aos="fade-left">
+              <div class="services-stats">
+                <div class="stat-item">
+                  <span class="stat-number">1M+</span>
+                  <span class="stat-label">Entities Extracted</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">99%</span>
+                  <span class="stat-label">Model Accuracy</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">0.3s</span>
+                  <span class="stat-label">Avg Processing Time</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4 mt-4">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card">
+              <div class="service-card-inner">
+                <div class="service-icon">
+                  <i class="bi bi-upload"></i>
+                </div>
+                <h3>Upload Text</h3>
+                <p>Users submit raw text via UI or API. Our secure pipeline accepts multiple input formats.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card">
+              <div class="service-card-inner">
+                <div class="service-icon">
+                  <i class="bi bi-cpu"></i>
+                </div>
+                <h3>Process with AI</h3>
+                <p>Our deep learning model classifies entities as PERSON, ORG, DATE, and LOCATION.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-card">
+              <div class="service-card-inner">
+                <div class="service-icon">
+                  <i class="bi bi-code-slash"></i>
+                </div>
+                <h3>Structured Output</h3>
+                <p>Instantly view your input text with <span style="color:#4caf50;">PERSON</span>, <span style="color:#2196f3;">LOCATION</span>, <span style="color:#ff9800;">DATE</span>, and <span style="color:#9c27b0;">ORG</span> entities highlighted in different colors</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card">
+              <div class="service-card-inner">
+                <div class="service-icon">
+                  <i class="bi bi-graph-up-arrow"></i>
+                </div>
+                <h3>Integrate & Analyze</h3>
+                <p>Connect the results with your analytics or dashboards to gain real-time insights.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- /How It Works Section -->
+
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Features</span>
+        <h2>Features</h2>
+        <p>Discover the intelligent tools and functionalities that power NERVision's NER system — engineered for precision, speed, and usability.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="features-overview">
+          <div class="main-heading" data-aos="fade-right" data-aos-delay="200">
+            <h2>AI-Driven Entity Intelligence</h2>
+            <p>Our system uses powerful deep learning models to accurately identify key entities such as PERSON, LOCATION, DATE, and ORGANIZATION from any user-submitted text.</p>
+            <p>It presents results in a clean, readable format by visually highlighting each entity type in distinct colors—making information extraction intuitive and immediate.</p>
+            <p>With built-in backend intelligence and seamless API integration, it fits smoothly into your workflow and scales effortlessly with your needs.</p>
+            <p>Designed for precision, speed, and clarity—our solution transforms raw text into structured insight that supports confident, real-time decision-making.</p>
+
+
+            <div class="achievement-badges">
+              <div class="achievement">
+                <span class="achievement-icon"><i class="bi bi-lightning-charge-fill"></i></span>
+                <div class="achievement-info">
+                  <span class="achievement-value">Real-Time</span>
+                  <span class="achievement-label">Entity Detection</span>
+                </div>
+              </div>
+              <div class="achievement">
+                <span class="achievement-icon"><i class="bi bi-gear-fill"></i></span>
+                <div class="achievement-info">
+                  <span class="achievement-value">Seamless</span>
+                  <span class="achievement-label">Backend Integration</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="features-card-wrapper" data-aos="fade-left" data-aos-delay="300">
+            <div class="features-row">
+              <div class="feature-card feature-primary" data-aos="zoom-in" data-aos-delay="200">
+                <div class="feature-icon">
+                  <i class="bi bi-eye"></i>
+                </div>
+                <div class="feature-details">
+                  <h3>Entity Highlighting</h3>
+                  <p>Automatically highlight PERSON, LOCATION, DATE, and ORG entities in text using distinct colors for easy comprehension.</p>
+                  <div class="feature-status active">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">Live</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="feature-icon">
+                  <i class="bi bi-code-slash"></i>
+                </div>
+                <div class="feature-details">
+                  <h3>Structured Output</h3>
+                  <p>Receive organized NER results in JSON format or annotated text — optimized for frontend rendering or backend processing.</p>
+                  <div class="feature-status active">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">Enabled</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="features-row">
+              <div class="feature-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="feature-icon">
+                  <i class="bi bi-layers"></i>
+                </div>
+                <div class="feature-details">
+                  <h3>Model Customization</h3>
+                  <p>Customize your model with domain-specific entity training for even higher precision in specialized contexts.</p>
+                  <div class="feature-status scheduled">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">Planned</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="feature-card" data-aos="zoom-in" data-aos-delay="500">
+                <div class="feature-icon">
+                  <i class="bi bi-server"></i>
+                </div>
+                <div class="feature-details">
+                  <h3>Backend History</h3>
+                  <p>Store prediction history and provide users with analytics on entity trends and prediction summaries.</p>
+                  <div class="feature-status active">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">Live</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="additional-features" data-aos="fade-up" data-aos-delay="100">
+          <div class="row gx-4 gy-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="additional-feature-card">
+                <div class="icon-container">
+                  <i class="bi bi-speedometer2"></i>
+                </div>
+                <h4>High-Speed Processing</h4>
+                <p>Deliver instant results — even with large documents — using optimized deep learning pipelines.</p>
+                <div class="feature-tag active">
+                  <i class="bi bi-check-circle"></i> Active
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="additional-feature-card">
+                <div class="icon-container">
+                  <i class="bi bi-box-arrow-in-up-right"></i>
+                </div>
+                <h4>Easy API Integration</h4>
+                <p>Use our well-documented API to integrate NER functionality into your apps with minimal effort.</p>
+                <div class="feature-tag active">
+                  <i class="bi bi-check-circle"></i> Active
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+              <div class="additional-feature-card">
+                <div class="icon-container">
+                  <i class="bi bi-bar-chart"></i>
+                </div>
+                <h4>Insight Dashboard</h4>
+                <p>View usage analytics and track entity trends across your application with our integrated dashboard.</p>
+                <div class="feature-tag pending">
+                  <i class="bi bi-arrow-repeat"></i> Coming Soon
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- /Features Section -->
+
+
+
+    <!-- Why Choose Us Section -->
+    <section id="whyChooseUs" class="call-to-action section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="cta-wrapper">
+          <div class="cta-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+          </div>
+
+          <div class="row g-0">
+            <div class="col-lg-7">
+              <div class="cta-content p-5" data-aos="fade-right" data-aos-delay="200">
+                <span class="badge-custom" data-aos="zoom-in" data-aos-delay="300">Why Choose Us</span>
+                <h2 class="mt-4 mb-4">Reliable AI-Powered Entity Extraction</h2>
+                <p class="mb-4">NERVision is built for speed, accuracy, and seamless integration. We empower your applications to automatically detect PERSON, LOCATION, DATE, and ORGANIZATION from any input—highlighted clearly in real time.</p>
+
+                <div class="row benefits-row mb-5">
+                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="benefit-item">
+                      <div class="icon-box">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                      </div>
+                      <div class="benefit-content">
+                        <h5>Fast & Accurate</h5>
+                        <p>Built on deep learning models for high precision without sacrificing speed.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="benefit-item">
+                      <div class="icon-box">
+                        <i class="bi bi-shield-lock-fill"></i>
+                      </div>
+                      <div class="benefit-content">
+                        <h5>Privacy-Focused</h5>
+                        <p>Your data is never stored—processing happens instantly and securely.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="action-buttons">
+                  <a href="/login-page" class="btn btn-primary" data-aos="fade-up" data-aos-delay="600">Try NERVision</a>
+                  <a href="#features" class="btn btn-outline" data-aos="fade-up" data-aos-delay="700">Explore Features</a>
+                  <div class="guarantee-badge" data-aos="fade-up" data-aos-delay="800">
+                    <i class="bi bi-patch-check-fill"></i>
+                    <span>Trusted by Developers & Researchers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="cta-image-container" data-aos="zoom-in" data-aos-delay="300">
+                <img src="../static/img/illustration/illustration-3.webp" alt="NER System Illustration" class="img-fluid main-image">
+                <div class="floating-element element-1">
+                  <i class="bi bi-graph-up-arrow"></i>
+                  <span>Real-Time Results</span>
+                </div>
+                <div class="floating-element element-2">
+                  <i class="bi bi-robot"></i>
+                  <span>AI-Powered Insights</span>
+                </div>
+                <div class="pattern-dots"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Frequently Asked Questions</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Explore common inquiries about how NERVision works and how it can benefit your workflow.</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-start gy-4">
+          <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="faq-sidebar">
+              <div class="faq-image">
+                <img src="../static/img/illustration/illustration-5.webp" alt="FAQ Image" class="img-fluid" loading="lazy">
+              </div>
+              <div class="contact-box">
+                <h3><i class="bi bi-headset"></i> Need Help?</h3>
+                <p>Have more questions about NERVision? Our support team is ready to assist you.</p>
+                <a href="#contact" class="btn-contact">Contact Support</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="accordion" id="faqAccordion-nervision">
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+                <h3>What is NERVision?</h3>
+                <div class="faq-content">
+                  <p>NERVision is an AI-powered system designed to extract structured information such as PERSON, LOCATION, DATE, and ORGANIZATION from raw user text using advanced deep learning techniques.</p>
+                </div>
+                <i class="bi bi-chevron-down faq-toggle"></i>
+              </div>
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                <h3>How does NERVision highlight entities?</h3>
+                <div class="faq-content">
+                  <p>Once you enter text into the system, NERVision highlights all recognized entities directly within the content using distinct colors for PERSON, ORG, LOCATION, and DATE, helping you visualize results instantly.</p>
+                </div>
+                <i class="bi bi-chevron-down faq-toggle"></i>
+              </div>
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
+                <h3>Can I get the output in JSON format?</h3>
+                <div class="faq-content">
+                  <p>Yes, NERVision supports structured output in JSON format for easy backend integration and automated workflows.</p>
+                </div>
+                <i class="bi bi-chevron-down faq-toggle"></i>
+              </div>
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                <h3>Is there an API for integration?</h3>
+                <div class="faq-content">
+                  <p>Absolutely. NERVision offers a RESTful API for integrating the system into your applications, allowing seamless text input and retrieval of processed results.</p>
+                </div>
+                <i class="bi bi-chevron-down faq-toggle"></i>
+              </div>
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="350">
+                <h3>How accurate is the entity extraction?</h3>
+                <div class="faq-content">
+                  <p>NERVision is built using state-of-the-art deep learning models and is fine-tuned to offer high accuracy in recognizing entities, especially in professional and multilingual contexts.</p>
+                </div>
+                <i class="bi bi-chevron-down faq-toggle"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!--End of FAQ -->
+
+    <!-- Team Section -->
+    <section id="team" class="team section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="team-header" data-aos="fade-up" data-aos-delay="200">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <h2>Meet Our NERVision Team</h2>
+              <p>We are a passionate group of AI researchers, developers, and innovators working together to advance Somali-language intelligence.</p>
+            </div>
+            <div class="col-lg-6 d-flex justify-content-lg-end">
+              <div class="team-controls">
+                <button class="team-control-btn team-prev"><i class="bi bi-chevron-left"></i></button>
+                <button class="team-control-btn team-next"><i class="bi bi-chevron-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-slider swiper init-swiper" data-aos="fade-up" data-aos-delay="300">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 700,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": 1,
+              "spaceBetween": 30,
+              "navigation": {
+                "nextEl": ".team-next",
+                "prevEl": ".team-prev"
+              },
+              "breakpoints": {
+                "576": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 20
+                },
+                "992": {
+                  "slidesPerView": 4,
+                  "spaceBetween": 30
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <!-- Member 1 -->
+            <div class="swiper-slide">
+              <div class="team-member">
+                <div class="member-image">
+                  <img src="../static/img/person/tubec.png" class="img-fluid" alt="Maryama Abdi" loading="lazy">
+                  <div class="member-social">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-content">
+                  <h3>Mohamed Suleyman</h3>
+                  <span>FullStack Developer</span>
+                  <p>Leads the architecture and optimization of our deep learning models in Somali NER.</p>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Contact</span>
+        <h2>Contact</h2>
+        <p>We're here to support your AI journey. Reach out with any questions about our Somali NER platform.</p>
+      </div>
+
+      <div class="container">
+        <div class="contact-wrapper">
+          <!-- Contact Info Panel -->
+          <div class="contact-info-panel">
+            <div class="contact-info-header">
+              <h3>Contact Information</h3>
+              <p>Feel free to get in touch with the NERVision team for support, feedback, or collaboration opportunities.</p>
+            </div>
+
+            <div class="contact-info-cards">
+              <div class="info-card">
+                <div class="icon-container"><i class="bi bi-pin-map-fill"></i></div>
+                <div class="card-content">
+                  <h4>Location</h4>
+                  <p>Mogadishu, Somalia</p>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <div class="icon-container"><i class="bi bi-envelope-open"></i></div>
+                <div class="card-content">
+                  <h4>Email</h4>
+                  <p>support@nervision.ai</p>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <div class="icon-container"><i class="bi bi-telephone-fill"></i></div>
+                <div class="card-content">
+                  <h4>Phone</h4>
+                  <p>+252 61 899 4037</p>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <div class="icon-container"><i class="bi bi-clock-history"></i></div>
+                <div class="card-content">
+                  <h4>Support Hours</h4>
+                  <p>Sat – Thu: 9AM - 6PM</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-links-panel">
+              <h5>Follow Us</h5>
+              <div class="social-icons">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter-x"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Panel -->
+          <div class="contact-form-panel">
+            <div class="map-container mb-4">
+              <iframe src="https://maps.google.com/maps?q=mogadishu%20somalia&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div class="form-container">
+              <h3>Send Us a Message</h3>
+              <p>Let us know how we can assist with your project, integration, or technical support needs.</p>
+
+              <form action="forms/contact.php" method="post" class="php-email-form">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="nameInput" name="name" placeholder="Full Name" required>
+                  <label for="nameInput">Full Name</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="emailInput" name="email" placeholder="Email Address" required>
+                  <label for="emailInput">Email Address</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="subjectInput" name="subject" placeholder="Subject" required>
+                  <label for="subjectInput">Subject</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <textarea class="form-control" id="messageInput" name="message" placeholder="Your Message" style="height: 150px" required></textarea>
+                  <label for="messageInput">Your Message</label>
+                </div>
+
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+
+                <div class="d-grid">
+                  <button type="submit" class="btn-submit">Send Message <i class="bi bi-send-fill ms-2"></i></button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">NERVision</span>
+          </a>
+          <p>At NERVision, we harness deep learning to extract named entities like PERSON, LOCATION, DATE, and ORGANIZATION from Somali-language content, helping you make smarter decisions.</p>
+          <div class="social-links d-flex mt-4">
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">How It Works</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Core Features</h4>
+          <ul>
+            <li><a href="#">Entity Recognition</a></li>
+            <li><a href="#">NER Visualization</a></li>
+            <li><a href="#">Real-Time API</a></li>
+            <li><a href="#">Somali Language Support</a></li>
+            <li><a href="#">Structured Output</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h4>
+          <p>Mogadishu, Somalia</p>
+          <p class="mt-2"><strong>Phone:</strong> <span>+252 61 899 4037</span></p>
+          <p><strong>Email:</strong> <span>support@nervision.ai</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">NERVision</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        Designed with ❤️ using <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
+      </div>
+    </div>
+
+  </footer>
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/vendor/php-email-form/validate.js"></script>
+  <script src="../static/vendor/aos/aos.js"></script>
+  <script src="../static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../static/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="../static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../static/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../static/js/main.js"></script>
+
+</body>
+
+</html>

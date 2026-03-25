@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NERVision Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #151D2E;
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    input.form-control::placeholder {
+      color: white !important;
+    }
+
+    .sidebar {
+      background-color: #1F2A40;
+      min-height: 100vh;
+      padding-top: 30px;
+    }
+
+    .sidebar .nav-link {
+      color: #cbd5e1;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+
+    .sidebar .nav-link.active,
+    .sidebar .nav-link:hover {
+      background-color: #273142;
+      color: #fff;
+    }
+
+    .profile-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .card-stat {
+      background-color: #1F2A40;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+    }
+
+    .card-stat .icon {
+      font-size: 24px;
+      color: #00c6ff;
+    }
+    .sidebar.collapsed {
+      width: 0px !important;
+      overflow: hidden;
+      transition: width 0.3s ease;
+    }
+
+    .sidebar {
+      transition: width 0.3s ease;
+    }
+
+    #predict-scrollable {
+      scrollbar-width: thin;
+      scrollbar-color: #4dabf7 transparent;
+    }
+
+    #predict-scrollable::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    #predict-scrollable::-webkit-scrollbar-thumb {
+      background-color: #4dabf7;
+      border-radius: 3px;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <!-- Modern Dashboard Header with Profile Popup -->
+    <nav class="navbar navbar-expand-lg px-4 py-2" style="background-color: #2b3ec5; height: 7vh;">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <!-- Left Logo and Toggle -->
+        <div class="d-flex align-items-center gap-3">
+          <span class="text-white fw-bold fs-4">NERVISION</span>
+          <button id="toggleSidebar" class="btn text-white border-0"><i class="fas fa-bars"></i></button>
+          <!-- Search -->
+          <div class="position-relative">
+            <input type="text" class="form-control rounded-pill px-4" placeholder="Search.." style="background-color: #3e4ed9; border: none; color: white;">
+            <i class="fas fa-search position-absolute top-50 end-0 translate-middle-y pe-3 text-white"></i>
+          </div>
+        </div>
+
+        <!-- Right Tools -->
+        <div class="d-flex align-items-center gap-3">
+          <div class="text-white"><i class="flag-icon flag-icon-us"></i> English</div>
+          <i class="fas fa-expand-arrows-alt text-white"></i>
+          <div class="position-relative">
+            <i class="fas fa-bell text-white"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+          </div>
+
+          <!-- Profile Image -->
+          <div class="dropdown">
+            <a href="#" class="d-flex align-items-center" data-bs-toggle="dropdown">
+              <img src="" id="profileImage" class="rounded-circle" style="width: 36px; height: 36px; object-fit: cover;">
+            </a>
+            <div class="dropdown-menu dropdown-menu-end p-4 shadow-lg" style="min-width: 300px;">
+              <h6 class="fw-bold mb-3">Update Profile</h6>
+              <!-- Profile Popup Form -->
+              <form id="updateProfileForm" enctype="multipart/form-data">
+                <div class="mb-2">
+                  <label class="form-label">Name</label>
+                  <input type="text" class="form-control" id="settingProfileName">
+                </div>
+                <div class="mb-2">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" id="settingProfileEmail">
+                </div>
+                <div class="mb-2">
+                  <label class="form-label">Password</label>
+                  <input type="password" class="form-control" id="settingProfilePassword">
+                </div>
+                <div class="mb-2">
+                  <label class="form-label">Profile Image</label>
+                  <input type="file" class="form-control" id="newProfileImage">
+                  <!-- Add this if you want to show current image -->
+                  <img id="settingProfileImage" src="" alt="Preview" class="mt-2 rounded" style="width: 40px; height: 40px; object-fit: cover;" />
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="row flex-grow-1" style="height: 93vh; overflow: hidden;">
+      <!-- Sidebar -->
+      <!-- Sidebar -->
+      <div id="sidebar" class="col-md-3 col-lg-2 sidebar d-flex flex-column align-items-center justify-content-between" style="min-height: 90vh;">
+        <div class="w-100 text-center">
+          <nav class="nav flex-column w-100 px-3 mt-4">
+            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#predict">🔍 Prediction</button>
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#history">📜 History</button>
+          </nav>
+        </div>
+
+        <!-- Logout pinned to bottom -->
+        <div class="w-100 px-3 pb-4">
+          <button class="nav-link text-danger w-100" onclick="logout()">🚪 Logout</button>
+        </div>
+      </div>
+
+
+      <!-- Main Content -->
+      <div class="col-md-9 col-lg-10 py-4 px-5">
+        <div class="tab-content">
+          <!-- Prediction Panel -->
+          <div class="tab-pane fade show active" id="predict">
+            <h3 class="mb-4"><i class="fas fa-brain me-2"></i>Name Entity Recognition</h3>
+
+            <!-- Scrollable Content Wrapper -->
+            <div id="predict-scrollable" style="max-height: 80vh; overflow-y: auto; padding-right: 10px;">
+
+              <div class="row g-4">
+                <div class="col-md-3">
+                  <div class="card card-stat p-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div>
+                        <h6>Characters</h6>
+                        <h5 id="characters">loading...</h5>
+                      </div>
+                      <i class="fas fa-chart-line icon"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card card-stat p-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div>
+                        <h6>NER Entities</h6>
+                        <h5 id="entities">loading...</h5>
+                      </div>
+                      <i class="fas fa-dna icon"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card card-stat p-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div>
+                        <h6>Words Analyzed</h6>
+                        <h5 id="words">loading...</h5>
+                      </div>
+                      <i class="fas fa-paragraph icon"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card card-stat p-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div>
+                        <h6>Accuracy</h6>
+                        <h5>91%</h5>
+                      </div>
+                      <i class="fas fa-check-circle icon"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5">
+                <label for="inputText" class="form-label fw-semibold">Paragraph Input</label>
+                <textarea id="inputText" rows="7" class="form-control bg-dark text-white border-0 p-3 rounded"></textarea>
+                <div class="text-end mt-3">
+                  <button class="btn btn-primary" onclick="displayUserText()">Analyze</button>
+                </div>
+              </div>
+
+              <!-- Output -->
+              <h5 class="text-info mt-5">
+                <i class="fas fa-eye me-2"></i>Your Output
+              </h5>
+              <div id="outputArea" class="bg-black text-light p-3 rounded-3" style="min-height: 150px; white-space: pre-wrap; line-height: 2;"></div>
+
+              <!-- Entity Highlight Legend -->
+              <div class="mb-4 mt-4">
+                <h6 class="text-light mb-3"><i class="fas fa-key me-2"></i>Entity Highlight Guide</h6>
+                <div class="d-flex flex-row gap-3 flex-wrap align-items-center">
+                  <div class="d-flex align-items-center px-3 py-2 rounded-3 text-dark" style="background-color: #ff6b6b; min-width: 200px; height: 50px;">
+                    <strong class="me-2">PER:</strong>
+                    <span>Person (e.g., Axmed Barre)</span>
+                  </div>
+                  <div class="d-flex align-items-center px-3 py-2 rounded-3 text-dark" style="background-color: #4dabf7; min-width: 200px; height: 50px;">
+                    <strong class="me-2">LOC:</strong>
+                    <span>Location (e.g., Muqdisho)</span>
+                  </div>
+                  <div class="d-flex align-items-center px-3 py-2 rounded-3 text-dark" style="background-color: #ffd43b; min-width: 200px; height: 50px;">
+                    <strong class="me-2">ORG:</strong>
+                    <span>Organization (e.g., Midowga Afrika)</span>
+                  </div>
+                  <div class="d-flex align-items-center px-3 py-2 rounded-3 text-dark" style="background-color: #63e6be; min-width: 200px; height: 50px;">
+                    <strong class="me-2">DATE:</strong>
+                    <span>Date (e.g., 12-kii Febraayo 2024)</span>
+                  </div>
+                </div>
+              </div>
+
+            </div> <!-- End Scrollable Content -->
+
+          </div>
+
+          <!-- History -->
+          <div class="tab-pane fade" id="history">
+            <div class="mb-4 d-flex justify-content-between align-items-center">
+              <h3 class="text-white"><i class="fas fa-history me-2"></i>All Predictions Made by You</h3>
+              <input type="text" class="form-control bg-dark text-white border-0 w-50" id="historySearch" placeholder="🔍 Search your paragraph history...">
+            </div>
+
+            <div style="max-height: 82vh; overflow-y: auto;">
+              <table class="table table-dark table-hover table-bordered align-middle">
+                <thead class="table-primary text-dark">
+                  <tr>
+                    <th style="width: 45%;">Predicted Paragraph</th>
+                    <th style="width: 20%;">Date</th>
+                    <th style="width: 15%;">Edit</th>
+                    <th style="width: 15%;">Delete</th>
+                  </tr>
+                </thead>
+                <tbody id="historyTableBody">
+                  <!-- Rows will be added by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Edit Modal -->
+          <div class="modal fade" id="editHistoryModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+              <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="editModalLabel"><i class="fas fa-pen me-2"></i>Edit Prediction</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                  <label for="editText" class="form-label">Edit Paragraph</label>
+                  <textarea id="editText" class="form-control bg-black text-white border-0" rows="6"></textarea>
+
+                  <div class="mt-4">
+                    <label class="form-label">Updated Prediction</label>
+                    <div id="editPreview" class="bg-black p-3 rounded" style="white-space: pre-wrap; line-height: 1.8;"></div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button id="updatePredictionBtn" class="btn btn-success">Update & Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      loadHistory();
+
+      // Enable search filter
+      $("#historySearch").on("input", function () {
+        const keyword = $(this).val().toLowerCase();
+        $("#historyTableBody tr").each(function () {
+          const rowText = $(this).text().toLowerCase();
+          $(this).toggle(rowText.includes(keyword));
+        });
+      });
+
+      // Load user info on page load
+      const user = JSON.parse(sessionStorage.getItem("user"));
+      if (!user) {
+        window.location.href = "/login-page";
+        return;
+      }
+
+      // Display user info
+      $("#profileName").text(user.name);
+      $("#profileImage").attr("src", "/static/uploads/" + user.profileImage);
+
+      // Fill update form
+      $("#settingProfileName").val(user.name);
+      $("#settingProfileEmail").val(user.email);
+      $("#settingProfileImage").attr("src", "/static/uploads/" + user.profileImage);
+
+      // Optional: set email in contact section if it exists
+      if ($("#contactEmail").length) {
+        $("#contactEmail").text(user.email);
+      }
+
+      // Analyze Paragraph Button
+      $("#analyzeBtn").on("click", function () {
+        const input = $("#inputText").val().trim();
+        $("#outputArea").text(input || "⚠️ Please enter a paragraph to analyze.");
+      });
+
+      // Profile Update
+      $("#updateProfileForm").on("submit", function (e) {
+        e.preventDefault();
+
+        const name = $("#settingProfileName").val().trim();
+        const newEmail = $("#settingProfileEmail").val().trim();
+        const password = $("#settingProfilePassword").val().trim();
+        const imageInput = $("#newProfileImage")[0];
+
+        if (!name || !newEmail) {
+          return showToast("Name and email are required.", "red");
+        }
+
+        if (password && password.length < 4) {
+          return showToast("Password must be at least 4 characters.", "red");
+        }
+
+        const formData = new FormData();
+        formData.append("email", user.email); // current email
+        formData.append("name", name);
+        formData.append("new_email", newEmail);
+
+        if (password !== "") {
+          formData.append("password", password);
+        }
+
+        if (imageInput && imageInput.files.length > 0) {
+          formData.append("profileImage", imageInput.files[0]);
+        }
+
+        $.ajax({
+          url: "/update-user",
+          type: "POST",
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function (res) {
+            if (res.success) {
+              // Update local session
+              user.name = name;
+              user.email = newEmail;
+              if (password !== "") user.password = password;
+              if (imageInput && imageInput.files.length > 0) {
+                user.profileImage = "users/" + imageInput.files[0].name;
+              }
+              sessionStorage.setItem("user", JSON.stringify(user));
+
+              // Update UI
+              $("#profileName").text(name);
+              $("#profileImage").attr("src", "/static/uploads/" + user.profileImage);
+              $("#settingProfileImage").attr("src", "/static/uploads/" + user.profileImage);
+              $("#settingProfileEmail").val(newEmail);
+
+              showToast("Profile updated successfully!", "green");
+            } else {
+              showToast(res.message || "Update failed.", "red");
+            }
+          },
+          error: function (xhr) {
+            const msg = xhr.responseJSON?.message || "Something went wrong.";
+            showToast(msg, "red");
+          }
+        });
+      });
+
+      // collapse and expand sidebar
+      document.getElementById('toggleSidebar').addEventListener('click', function () {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('collapsed');
+      });
+
+
+      // Logout
+      window.logout = function () {
+        sessionStorage.clear();
+        window.location.href = "/login-page";
+      };
+
+      function showToast(message, color) {
+        Toastify({
+          text: message,
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: color,
+          stopOnFocus: true,
+        }).showToast();
+      }
+    });
+
+    function displayUserText() {
+      document.getElementById("outputArea").innerHTML = "";
+      const inputText = document.getElementById("inputText").value.trim();
+
+     if (!inputText) {
+        document.getElementById("outputArea").innerHTML = `<span style="color:red"> ⚠️ Please enter a paragraph. </span>`;
+        document.getElementById("characters").innerText = "loading...";
+        document.getElementById("words").innerText = "loading...";
+        document.getElementById("entities").innerText = "loading...";
+        Toastify({
+          text: "⚠️ Please enter a paragraph.",
+          backgroundColor: "red"
+        }).showToast();
+
+        return;
+      }
+
+      if (inputText.length > 500) {
+        Toastify({ text: "❌ Not allowed more than 500 characters.", backgroundColor: "red" }).showToast();
+        return;
+      }
+
+      fetch("/ner", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: inputText })
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("outputArea").innerHTML = data.highlighted || inputText;
+        document.getElementById("characters").innerText = data.char_count;
+        document.getElementById("words").innerText = data.word_count;
+        document.getElementById("entities").innerText = data.entity_count;
+        loadHistory();
+
+        if (data.entity_count === 0) {
+          Toastify({
+            text: "No named entities found. Paragraph shown as-is.",
+            backgroundColor: "#888",
+          }).showToast();
+        }
+      })
+      .catch(err => {
+        Toastify({ text: "❌ Server error.", backgroundColor: "red" }).showToast();
+        console.error(err);
+      });
+    }
+
+    function loadHistory() {
+      $.get("/get-history", function(data) {
+        const body = $("#historyTableBody");
+        body.empty();
+
+        data.forEach(row => {
+          const htmlRow = `
+            <tr>
+              <td>${row.predictedText}</td>
+              <td>${new Date(row.date).toLocaleString()}</td>
+              <td>
+                <button class="btn btn-sm btn-warning me-1" onclick="editHistory(${row.id})">Edit</button>
+              </td>
+               <td>
+                <button class="btn btn-sm btn-danger" onclick="deleteHistory(${row.id})">Delete</button>
+              </td>
+            </tr>
+          `;
+          body.append(htmlRow);
+        });
+      });
+    }
+
+
+    let currentEditId = null;
+
+    function editHistory(id) {
+      // Get the original paragraph (remove tags and get plain text)
+      const rawText = $(`#historyTableBody tr:has(button[onclick='editHistory(${id})']) td:first`).text().trim();
+      $("#editText").val(rawText);
+      $("#editPreview").html(""); // Clear preview
+      currentEditId = id;
+      $("#editHistoryModal").modal("show");
+    }
+
+    // When user types in the edit box, re-analyze
+    $("#editText").on("input", function () {
+      const updatedText = $(this).val().trim();
+      if (updatedText.length === 0 || updatedText.length > 500) {
+        $("#editPreview").html("<span class='text-danger'>Invalid input (empty or >500 characters)</span>");
+        return;
+      }
+
+      fetch("/rener", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: updatedText })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.highlighted) {
+            $("#editPreview").html(data.highlighted);
+          } else {
+            $("#editPreview").html("<span class='text-danger'>No entities found.</span>");
+          }
+        });
+    });
+
+    // On Update & Save
+    $("#updatePredictionBtn").on("click", function () {
+      const newText = $("#editPreview").html();
+
+      if (!newText || currentEditId === null) return;
+
+      $.ajax({
+        url: `/update-history/${currentEditId}`,
+        method: "PUT",
+        contentType: "application/json",
+        data: JSON.stringify({ predictedText: newText }),
+        success: function () {
+          $("#editHistoryModal").modal("hide");
+          loadHistory();
+          Toastify({ text: "Prediction updated successfully.", backgroundColor: "green" }).showToast();
+        },
+        error: function () {
+          Toastify({ text: "Failed to update prediction.", backgroundColor: "red" }).showToast();
+        }
+      });
+    });
+
+    function deleteHistory(id) {
+      if (confirm("Are you sure you want to delete this prediction?")) {
+        $.ajax({
+          url: "/delete-history/" + id,
+          method: "DELETE",
+          success: function () {
+            loadHistory();
+            Toastify({ text: "Prediction deleted.", backgroundColor: "green" }).showToast();
+          },
+          error: function () {
+            Toastify({ text: "Failed to delete.", backgroundColor: "red" }).showToast();
+          }
+        });
+      }
+    }
+
+
+
+  </script>
+
+</body>
+</html>
