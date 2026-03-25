@@ -15,6 +15,7 @@ An AI-powered Named Entity Recognition (NER) system designed to analyze Somali t
 * 🕒 Prediction History Tracking
 * ✏️ Update & Delete History
 * 📱 Responsive UI (Mobile & Desktop)
+* ⚡ Ready-to-use database setup with included SQL file
 
 ---
 
@@ -50,7 +51,7 @@ An AI-powered Named Entity Recognition (NER) system designed to analyze Somali t
 ### 👥 Team Section
 
 <p align="center">
-  <img src="docs/Team.png" width="800">
+  <img src="docs/Teams.png" width="800">
 </p>
 
 ### 🔐 Login Page
@@ -124,14 +125,18 @@ NERVISION SYSTEM/
 │   ├── Home.png
 │   ├── About.png
 │   ├── Features.png
+│   ├── Teams.png
 │   ├── Login.png
 │   ├── Signup.png
 │   ├── Prediction_dashboard.png
 │   └── History_dashboard.png
 │
+├── database/
+│   └── ner.sql            # Database file
+│
 ├── .venv/
 ├── node_modules/
-├── output/               # spaCy trained model
+├── output/                # spaCy trained model (ignored)
 ├── static/
 ├── templates/
 │
@@ -144,30 +149,45 @@ NERVISION SYSTEM/
 
 ## 🗄️ Database Setup
 
-Create database:
+### 1. Create Database
 
 ```
 CREATE DATABASE NER;
 ```
 
-Create tables:
+---
+
+### 2. Import SQL File
 
 ```
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    email VARCHAR(100) UNIQUE,
-    password TEXT,
-    profileImage TEXT
-);
-
-CREATE TABLE history (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(100),
-    predictedText LONGTEXT,
-    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+mysql -u root -p NER < database/ner.sql
 ```
+
+---
+
+### 3. Configure Connection
+
+Update `app.py` if needed:
+
+```python
+def get_db_connection():
+    return mysql.connector.connect(
+        host='localhost',
+        user='root',
+        password='',
+        database='NER'
+    )
+```
+
+---
+
+### 📌 Note
+
+* `ner.sql` already contains:
+
+  * users table
+  * history table
+* Make sure MySQL server is running
 
 ---
 
@@ -176,9 +196,11 @@ CREATE TABLE history (
 ### 1. Clone Repository
 
 ```
-git clone https://github.com/your-username/nervision-ai.git
-cd nervision-ai
+git clone https://github.com/tubeec1/NERVISION-AI.git
+cd NERVISION-AI
 ```
+
+---
 
 ### 2. Install Dependencies
 
@@ -186,11 +208,15 @@ cd nervision-ai
 pip install flask numpy spacy mysql-connector-python werkzeug tensorflow pillow
 ```
 
+---
+
 ### 3. Run Application
 
 ```
 python app.py
 ```
+
+---
 
 ### 4. Open Browser
 
@@ -216,6 +242,14 @@ Axmed Barre ayaa tagay Muqdisho 12-kii Febraayo 2024
 
 ---
 
+## ⚠️ Important Notes
+
+* AI model files are excluded due to GitHub size limits
+* Ensure `output/model-last` exists locally
+* Do not upload `.venv`, `node_modules`, or model files
+
+---
+
 ## 🌍 Future Improvements
 
 * 🌐 Deploy to cloud (Render / Railway)
@@ -228,7 +262,7 @@ Axmed Barre ayaa tagay Muqdisho 12-kii Febraayo 2024
 
 ## 👨‍💻 Author
 
-**Mo (Full Stack Developer)**
+**Mohamed Suleyman Ibrahim (Full Stack Developer)**
 
 ---
 
